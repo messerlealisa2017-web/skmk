@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)file:///C:/Users/user/Downloads/skmk-site_4.html -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>СК МК — Частное агентство занятости</title>
+<!-- Шрифты загружаются напрямую, сайт работает даже если Google недоступен -->
+<link rel="stylesheet" href="./ш_files/css2">
+<style>
+  /* Запасные шрифты если Google недоступен */
+  @font-face { font-family: 'Unbounded'; font-weight: 400 900; font-display: swap; src: local('Arial Black'), local('Impact'), local('Franklin Gothic Heavy'); }
+  @font-face { font-family: 'Raleway'; font-weight: 300 800; font-display: swap; src: local('Segoe UI'), local('Helvetica Neue'), local('Arial'); }
+</style>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --black: #0d0d0d; --dark: #111; --card: #161616; --border: #1e1e1e;
+    --green: #3adb76; --green-dim: rgba(58,219,118,0.12); --white: #ffffff;
+    --gray: #aaa; --light: #ddd;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--black); color: var(--white); font-family: 'Raleway', sans-serif; font-weight: 700; overflow-x: hidden; }
+  body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events:none; z-index:0; opacity:0.6; }
+  ::-webkit-scrollbar{width:4px} ::-webkit-scrollbar-track{background:var(--black)} ::-webkit-scrollbar-thumb{background:var(--green);border-radius:2px}
+
+  /* NAV */
+  nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:20px 60px; background:rgba(13,13,13,0.94); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); }
+  .nav-logo { display:flex; align-items:center; gap:16px; text-decoration:none; }
+  .moon-icon { position:relative; width:44px; height:44px; flex-shrink:0; }
+  .moon-circle { width:44px; height:44px; background:#fff; border-radius:50%; position:absolute; top:0; left:0; }
+  .letters-wrap { position:absolute; inset:0; display:flex; align-items:flex-end; justify-content:center; overflow:hidden; border-radius:50%; }
+  .letter-stack { position:relative; width:42px; height:32px; margin-bottom:-1px; }
+  .ls { position:absolute; font-family:'Unbounded',sans-serif; font-weight:900; color:#0d0d0d; line-height:1; bottom:0; }
+  .l-s { font-size:26px; left:-1px; opacity:0.9; color:#3adb76; }
+  .l-k { font-size:26px; right:-1px; opacity:0.2; }
+  .l-m { font-size:30px; left:50%; transform:translateX(-50%); opacity:1; }
+  .logo-text { display:flex; flex-direction:column; gap:2px; }
+  .logo-main { font-family:'Unbounded',sans-serif; font-size:16px; font-weight:700; color:#fff; letter-spacing:3px; line-height:1; }
+  .logo-sub { font-size:7px; font-weight:700; letter-spacing:2px; color:var(--green); text-transform:uppercase; line-height:1.7; }
+  .nav-links { display:flex; align-items:center; gap:28px; list-style:none; }
+  .nav-links a { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gray); text-decoration:none; transition:color 0.3s; }
+  .nav-links a:hover { color:var(--green); }
+  .nav-cta { background:var(--green); color:var(--black) !important; padding:10px 20px; border-radius:2px; font-weight:800 !important; }
+  .nav-cta:hover { opacity:0.85; }
+
+  /* HERO */
+  .hero { min-height:100vh; display:flex; align-items:center; padding:120px 60px 80px; position:relative; overflow:hidden; }
+  .hero-bg-circle { position:absolute; width:700px; height:700px; border-radius:50%; background:radial-gradient(circle,rgba(58,219,118,0.07) 0%,transparent 70%); right:-100px; top:50%; transform:translateY(-50%); pointer-events:none; }
+
+  /* BIG LOGO in hero */
+  .hero-logo-visual {
+    position:absolute; right:8%; top:50%; transform:translateY(-50%);
+    width:340px; height:340px; flex-shrink:0; pointer-events:none; z-index:1;
+  }
+  .hero-logo-circle { width:340px; height:340px; background:#fff; border-radius:50%; position:absolute; top:0; left:0; }
+  .hero-logo-wrap { position:absolute; inset:0; display:flex; align-items:flex-end; justify-content:center; overflow:hidden; border-radius:50%; }
+  .hero-logo-stack { position:relative; width:320px; height:240px; margin-bottom:-4px; }
+  .hls { position:absolute; font-family:'Unbounded',sans-serif; font-weight:900; color:#0d0d0d; line-height:1; bottom:0; }
+  .hl-s { font-size:200px; left:-6px; opacity:0.9; color:#3adb76; }
+  .hl-k { font-size:200px; right:-6px; opacity:0.2; }
+  .hl-m { font-size:228px; left:50%; transform:translateX(-50%); opacity:1; }
+
+  .hero-content { max-width:620px; position:relative; z-index:2; }
+  .hero-badge { display:inline-flex; align-items:center; gap:8px; background:var(--green-dim); border:1px solid rgba(58,219,118,0.3); border-radius:2px; padding:6px 14px; margin-bottom:40px; }
+  .hero-badge-dot { width:6px; height:6px; border-radius:50%; background:var(--green); animation:pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+  .hero-badge span { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--green); }
+  .hero h1 { font-family:'Unbounded',sans-serif; font-size:clamp(36px,5vw,72px); font-weight:900; line-height:1.05; letter-spacing:-1px; margin-bottom:30px; }
+  .hero h1 em { font-style:normal; color:var(--green); }
+  .hero-desc { font-size:17px; font-weight:700; color:var(--light); line-height:1.75; max-width:540px; margin-bottom:50px; }
+  .hero-actions { display:flex; gap:16px; flex-wrap:wrap; }
+  .btn-primary { display:inline-flex; align-items:center; gap:10px; background:var(--green); color:var(--black); font-family:'Raleway',sans-serif; font-size:12px; font-weight:800; letter-spacing:2px; text-transform:uppercase; padding:16px 32px; border-radius:2px; text-decoration:none; transition:opacity 0.3s,transform 0.2s; border:none; cursor:pointer; }
+  .btn-primary:hover { opacity:0.88; transform:translateY(-1px); }
+  .btn-outline { display:inline-flex; align-items:center; gap:10px; background:transparent; color:var(--white); font-family:'Raleway',sans-serif; font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:16px 32px; border:1px solid var(--border); border-radius:2px; text-decoration:none; transition:border-color 0.3s,color 0.3s; cursor:pointer; }
+  .btn-outline:hover { border-color:var(--green); color:var(--green); }
+  .hero-stats { display:flex; gap:48px; margin-top:70px; padding-top:40px; border-top:1px solid var(--border); }
+  .stat-num { font-family:'Unbounded',sans-serif; font-size:32px; font-weight:900; color:var(--white); line-height:1; }
+  .stat-num span { color:var(--green); }
+  .stat-label { font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--gray); margin-top:6px; }
+
+  /* SECTIONS */
+  section { padding:100px 60px; position:relative; z-index:1; }
+  .section-tag { display:inline-flex; align-items:center; gap:10px; font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--green); margin-bottom:20px; }
+  .section-tag::before { content:''; display:block; width:24px; height:1px; background:var(--green); }
+  .section-title { font-family:'Unbounded',sans-serif; font-size:clamp(26px,3.5vw,48px); font-weight:900; line-height:1.1; letter-spacing:-0.5px; margin-bottom:20px; }
+  .section-title em { font-style:normal; color:var(--green); }
+  .section-desc { font-size:16px; font-weight:700; color:var(--gray); line-height:1.75; max-width:580px; }
+
+  /* ACCRED */
+  .accred-banner { background:linear-gradient(135deg,rgba(58,219,118,0.1) 0%,transparent 60%); border:1px solid rgba(58,219,118,0.25); border-radius:4px; padding:60px; display:flex; align-items:center; gap:60px; margin-bottom:60px; }
+  .accred-icon { width:90px; height:90px; flex-shrink:0; background:var(--green-dim); border:1px solid var(--green); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:36px; }
+  .accred-text h3 { font-family:'Unbounded',sans-serif; font-size:22px; font-weight:900; margin-bottom:12px; color:var(--green); }
+  .accred-text p { font-size:15px; font-weight:700; line-height:1.75; color:var(--light); max-width:680px; }
+
+  /* SERVICES */
+  .services-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; margin-top:60px; border:2px solid var(--border); border-radius:4px; overflow:hidden; }
+  .service-card { background:var(--card); padding:50px; position:relative; overflow:hidden; transition:background 0.3s; }
+  .service-card:hover { background:#1a1a1a; }
+  .service-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--green); transform:scaleX(0); transform-origin:left; transition:transform 0.4s; }
+  .service-card:hover::after { transform:scaleX(1); }
+  .service-num { font-family:'Unbounded',sans-serif; font-size:11px; font-weight:700; letter-spacing:3px; color:var(--green); opacity:0.6; margin-bottom:24px; }
+  .service-title { font-family:'Unbounded',sans-serif; font-size:20px; font-weight:700; margin-bottom:8px; line-height:1.2; }
+  .service-sub { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--green); margin-bottom:20px; }
+  .service-desc { font-size:14px; font-weight:700; line-height:1.8; color:var(--light); }
+  .service-tag { display:inline-flex; margin-top:24px; background:var(--green-dim); border:1px solid rgba(58,219,118,0.2); border-radius:2px; padding:4px 12px; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--green); }
+
+  /* AUDIENCE */
+  .audience-wrapper { display:grid; grid-template-columns:1fr 1fr; gap:2px; margin-top:60px; }
+  .audience-col { background:var(--card); padding:60px 50px; border-radius:4px; position:relative; overflow:hidden; }
+  .audience-col::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--green); }
+  .audience-label { display:inline-flex; align-items:center; gap:8px; font-size:10px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--green); margin-bottom:28px; background:var(--green-dim); padding:6px 14px; border-radius:2px; }
+  .audience-title { font-family:'Unbounded',sans-serif; font-size:26px; font-weight:900; line-height:1.15; margin-bottom:16px; }
+  .audience-intro { font-size:14px; font-weight:700; line-height:1.8; color:var(--light); margin-bottom:36px; padding-bottom:36px; border-bottom:1px solid var(--border); }
+  .benefit-list { list-style:none; display:flex; flex-direction:column; gap:20px; }
+  .benefit-item { display:flex; gap:18px; align-items:flex-start; }
+  .benefit-icon { width:34px; height:34px; flex-shrink:0; background:var(--green-dim); border:1px solid rgba(58,219,118,0.25); border-radius:2px; display:flex; align-items:center; justify-content:center; font-size:15px; margin-top:1px; }
+  .benefit-title { font-size:13px; font-weight:800; color:var(--white); margin-bottom:4px; }
+  .benefit-desc { font-size:13px; font-weight:700; line-height:1.65; color:var(--gray); }
+
+  /* STEPS */
+  .steps-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; margin-top:60px; }
+  .step-card { background:var(--card); padding:40px 32px; }
+  .step-card:first-child{border-radius:4px 0 0 4px} .step-card:last-child{border-radius:0 4px 4px 0}
+  .step-num { font-family:'Unbounded',sans-serif; font-size:48px; font-weight:900; color:var(--border); line-height:1; margin-bottom:24px; }
+  .step-title { font-family:'Unbounded',sans-serif; font-size:14px; font-weight:700; margin-bottom:12px; line-height:1.3; }
+  .step-desc { font-size:13px; font-weight:700; line-height:1.7; color:var(--gray); }
+
+  /* WHY */
+  .why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:60px; }
+  .why-card { background:var(--card); border:1px solid var(--border); border-radius:4px; padding:36px; transition:border-color 0.3s; }
+  .why-card:hover { border-color:rgba(58,219,118,0.4); }
+  .why-icon { font-size:28px; margin-bottom:20px; }
+  .why-title { font-family:'Unbounded',sans-serif; font-size:14px; font-weight:700; margin-bottom:10px; line-height:1.3; }
+  .why-desc { font-size:13px; font-weight:700; line-height:1.7; color:var(--gray); }
+
+  /* FORMS */
+  .form-section { padding:100px 60px; background:var(--card); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+  .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; margin-top:60px; }
+  .form-left h3 { font-family:'Unbounded',sans-serif; font-size:22px; font-weight:900; margin-bottom:16px; line-height:1.3; }
+  .form-left p { font-size:14px; font-weight:700; line-height:1.8; color:var(--light); margin-bottom:24px; }
+  .form-promise { display:flex; flex-direction:column; gap:12px; }
+  .form-promise-item { display:flex; align-items:center; gap:10px; font-size:13px; font-weight:700; color:var(--gray); }
+  .form-promise-item::before { content:'✓'; color:var(--green); font-weight:900; }
+  .app-form { display:flex; flex-direction:column; gap:16px; }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .field-group { display:flex; flex-direction:column; gap:6px; }
+  .field-label { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--green); }
+  .field-input { background:#111; border:1px solid var(--border); border-radius:2px; padding:14px 16px; color:var(--white); font-family:'Raleway',sans-serif; font-size:14px; font-weight:700; outline:none; transition:border-color 0.3s; width:100%; }
+  .field-input:focus { border-color:var(--green); }
+  .field-input::placeholder { color:#444; }
+  select.field-input { appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%233adb76' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 16px center; background-color:#111; padding-right:40px; cursor:pointer; }
+  select.field-input option { background:#161616; color:#fff; }
+  .privacy-check { display:flex; align-items:flex-start; gap:12px; }
+  .privacy-check input[type="checkbox"] { width:18px; height:18px; flex-shrink:0; accent-color:var(--green); margin-top:2px; cursor:pointer; }
+  .privacy-check label { font-size:12px; font-weight:700; color:var(--gray); line-height:1.6; cursor:pointer; }
+  .privacy-check label a { color:var(--green); text-decoration:underline; }
+  .form-status { display:none; padding:16px 20px; border-radius:2px; font-size:13px; font-weight:700; }
+  .form-status.success { display:block; background:rgba(58,219,118,0.12); border:1px solid rgba(58,219,118,0.4); color:var(--green); }
+  .form-status.error { display:block; background:rgba(220,50,50,0.1); border:1px solid rgba(220,50,50,0.3); color:#ff6b6b; }
+
+  /* CTA */
+  .cta-section { text-align:center; padding:120px 60px; background:linear-gradient(180deg,transparent 0%,rgba(58,219,118,0.05) 50%,transparent 100%); position:relative; overflow:hidden; }
+  .cta-section::before { content:'СК МК'; position:absolute; font-family:'Unbounded',sans-serif; font-size:200px; font-weight:900; color:rgba(255,255,255,0.02); top:50%; left:50%; transform:translate(-50%,-50%); white-space:nowrap; pointer-events:none; }
+  .cta-section .section-title { margin:0 auto 20px; }
+  .cta-section .section-desc { margin:0 auto 48px; text-align:center; }
+  .cta-row { display:flex; align-items:center; justify-content:center; gap:20px; flex-wrap:wrap; margin-bottom:60px; }
+  .contacts-grid { display:flex; justify-content:center; gap:48px; flex-wrap:wrap; padding-top:48px; border-top:1px solid var(--border); margin-top:48px; }
+  .contact-item { display:flex; flex-direction:column; align-items:center; gap:6px; }
+  .contact-label { font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gray); }
+  .contact-val { font-family:'Unbounded',sans-serif; font-size:14px; font-weight:700; color:var(--white); text-decoration:none; }
+  .contact-val:hover { color:var(--green); }
+
+  /* FOOTER */
+  footer { background:#0a0a0a; border-top:1px solid var(--border); padding:40px 60px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; }
+  .footer-copy { font-size:11px; font-weight:700; color:var(--gray); }
+  .footer-links a { font-size:11px; font-weight:700; color:#555; text-decoration:none; transition:color 0.3s; }
+  .footer-links a:hover { color:var(--green); }
+
+  .sep { width:100%; height:1px; background:var(--border); }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+  .hero-content>* { animation:fadeUp 0.8s ease both; }
+  .hero-badge{animation-delay:0s} .hero h1{animation-delay:0.1s} .hero-desc{animation-delay:0.2s} .hero-actions{animation-delay:0.3s} .hero-stats{animation-delay:0.4s}
+
+  @media(max-width:1100px){ .hero-logo-visual{width:260px;height:260px} .hero-logo-circle{width:260px;height:260px} .hl-s,.hl-k{font-size:154px} .hl-m{font-size:174px} .hero-logo-stack{width:246px;height:186px} }
+  @media(max-width:900px){
+    nav{padding:16px 24px} .nav-links{display:none}
+    .hero,section,.form-section,.cta-section{padding-left:24px;padding-right:24px}
+    .hero h1{font-size:32px} .hero-logo-visual{display:none}
+    .services-grid,.audience-wrapper,.form-grid,.form-row{grid-template-columns:1fr}
+    .steps-grid{grid-template-columns:1fr 1fr} .why-grid{grid-template-columns:1fr}
+    .accred-banner{flex-direction:column;gap:30px;padding:36px}
+    .hero-stats{gap:28px;flex-wrap:wrap}
+    footer{padding:30px 24px;flex-direction:column;align-items:flex-start}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="file:///C:/Users/user/Downloads/skmk-site_4.html#" class="nav-logo">
+    <div class="moon-icon">
+      <div class="moon-circle"></div>
+      <div class="letters-wrap"><div class="letter-stack"><span class="ls l-s">С</span><span class="ls l-k">К</span><span class="ls l-m">М</span></div></div>
+    </div>
+    <div class="logo-text">
+      <div class="logo-main">СК МК</div>
+      <div class="logo-sub">Частное агентство<br>занятости</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="file:///C:/Users/user/Downloads/skmk-site_4.html#services">Услуги</a></li>
+    <li><a href="file:///C:/Users/user/Downloads/skmk-site_4.html#clients">Клиентам</a></li>
+    <li><a href="file:///C:/Users/user/Downloads/skmk-site_4.html#workers">Сотрудникам</a></li>
+    <li><a href="file:///C:/Users/user/Downloads/skmk-site_4.html#need-staff" class="nav-cta" style="background:transparent;color:var(--green)!important;border:1px solid var(--green);padding:10px 20px;">Нужны сотрудники</a></li>
+    <li><a href="file:///C:/Users/user/Downloads/skmk-site_4.html#want-work">Хочу работать</a></li>
+    <li><a href="file:///C:/Users/user/Downloads/skmk-site_4.html#contact" class="nav-cta">Связаться</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-circle"></div>
+
+  <!-- Большое круглое лого справа -->
+  <div class="hero-logo-visual">
+    <div class="hero-logo-circle"></div>
+    <div class="hero-logo-wrap">
+      <div class="hero-logo-stack">
+        <span class="hls hl-s">С</span>
+        <span class="hls hl-k">К</span>
+        <span class="hls hl-m">М</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge"><div class="hero-badge-dot"></div><span>Государственная аккредитация · Работаем официально</span></div>
+    <h1>Персонал.<br><em>Быстро.</em><br>По закону.</h1>
+    <p class="hero-desc">СК МК — аккредитованное частное агентство занятости. Предоставляем проверенных рабочих специалистов бизнесу и даём людям честную, официальную занятость — с трудовым договором, белой зарплатой и стабильностью.</p>
+    <div class="hero-actions">
+      <a href="file:///C:/Users/user/Downloads/skmk-site_4.html#need-staff" class="btn-primary">Я ищу персонал →</a>
+      <a href="file:///C:/Users/user/Downloads/skmk-site_4.html#want-work" class="btn-outline">Хочу работать →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><div class="stat-num">100<span>+</span></div><div class="stat-label">Сотрудников в базе</div></div>
+      <div class="stat-item"><div class="stat-num">48<span>ч</span></div><div class="stat-label">Среднее время подбора</div></div>
+      <div class="stat-item"><div class="stat-num">100<span>%</span></div><div class="stat-label">Официальное трудоустройство</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- АККРЕДИТАЦИЯ -->
+<section id="about">
+  <div class="section-tag">О компании</div>
+  <h2 class="section-title">Почему <em>аккредитация</em><br>имеет значение</h2>
+  <p class="section-desc">Мы не просто посредник — мы лицензированный участник рынка труда с государственным подтверждением.</p>
+  <div class="accred-banner" style="margin-top:50px;">
+    <div class="accred-icon">🏛</div>
+    <div class="accred-text">
+      <h3>Государственная аккредитация частного агентства занятости</h3>
+      <p>Деятельность СК МК полностью соответствует требованиям Федерального законодательства о занятости населения. Государственная аккредитация — это не формальность: это гарантия того, что каждый наш договор юридически чист, каждый сотрудник защищён трудовым законодательством, а каждый клиент работает в правовом поле без рисков. Мы прошли проверку государства — и теперь это ваша защита.</p>
+    </div>
+  </div>
+  <div class="why-grid">
+    <div class="why-card"><div class="why-icon">📋</div><div class="why-title">Трудовой договор с каждым сотрудником</div><div class="why-desc">Каждый специалист работает по официальному трудовому договору. Никаких серых схем — только документ, который защищает обе стороны.</div></div>
+    <div class="why-card"><div class="why-icon">⚡</div><div class="why-title">Быстрый выход на объект</div><div class="why-desc">Благодаря постоянно обновляемой базе проверенных специалистов мы закрываем заявки в кратчайшие сроки. Ваш объект не будет простаивать.</div></div>
+    <div class="why-card"><div class="why-icon">💰</div><div class="why-title">Белые зарплаты, всегда в срок</div><div class="why-desc">Выплаты сотрудникам — строго в срок и в полном объёме. Никаких задержек, никаких конвертов. Надёжность, которую ценят люди.</div></div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- УСЛУГИ -->
+<section id="services">
+  <div class="section-tag">Наши услуги</div>
+  <h2 class="section-title">Два формата<br><em>сотрудничества</em></h2>
+  <p class="section-desc">Подбираем модель под задачи вашего бизнеса: временное усиление команды или закрытие позиций насовсем.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01 — АУТСТАФФИНГ</div>
+      <div class="service-title">Предоставление персонала</div>
+      <div class="service-sub">Договор на предоставление персонала</div>
+      <div class="service-desc">Вам нужны люди — но вы не хотите брать на себя кадровую нагрузку? Мы берём её на себя. Сотрудники числятся в штате СК МК, работают на вашем объекте и полностью выполняют ваши задачи.<br><br>Вы получаете рабочую силу без кадрового делопроизводства, налоговой нагрузки и административных рисков. Мы — работодатель. Вы — заказчик производительности.<br><br><strong style="color:#fff;">Идеально для:</strong> сезонного усиления, пиковых нагрузок, временных проектов, вывода сотрудников за штат.</div>
+      <div class="service-tag">Аутстаффинг</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02 — АУТСОРСИНГ</div>
+      <div class="service-title">Подбор персонала</div>
+      <div class="service-sub">Договор на подбор персонала</div>
+      <div class="service-desc">Ищете сотрудника в свой штат? Мы берём на себя полный цикл: поиск, первичный отбор, проверку, собеседования. Вы получаете финальных кандидатов — уже проверенных и готовых к работе.<br><br>Наша база регулярно пополняется специалистами рабочих профессий, прошедшими многоэтапный отбор. Мы знаем, кого ищем, и находим быстро.<br><br><strong style="color:#fff;">Идеально для:</strong> закрытия штатных вакансий, поиска редких специалистов, масштабного найма.</div>
+      <div class="service-tag">Аутсорсинг подбора</div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- АУДИТОРИЯ -->
+<section>
+  <div class="section-tag">Для кого мы работаем</div>
+  <h2 class="section-title">Выберите <em>свой путь</em></h2>
+  <p class="section-desc">Мы создаём ценность для двух сторон — и каждой уделяем одинаковое внимание.</p>
+  <div class="audience-wrapper">
+    <div class="audience-col" id="clients">
+      <div class="audience-label">💼 Для бизнеса</div>
+      <h3 class="audience-title">Вы ищете персонал</h3>
+      <p class="audience-intro">Забудьте о кадровых головных болях. Мы берём на себя всё: поиск, проверку, оформление и сопровождение. Ваша задача — результат на объекте. Наша — обеспечить тех, кто его даст.</p>
+      <ul class="benefit-list">
+        <li class="benefit-item"><div class="benefit-icon">⚡</div><div class="benefit-body"><div class="benefit-title">Скорость закрытия заявки</div><div class="benefit-desc">Реагируем на заявку в течение нескольких часов. Срочная потребность — не проблема.</div></div></li>
+        <li class="benefit-item"><div class="benefit-icon">🛡</div><div class="benefit-body"><div class="benefit-title">Юридическая чистота</div><div class="benefit-desc">Государственная аккредитация и официальный договор защищают ваш бизнес от претензий проверяющих органов.</div></div></li>
+        <li class="benefit-item"><div class="benefit-icon">🎯</div><div class="benefit-body"><div class="benefit-title">Тщательный отбор кандидатов</div><div class="benefit-desc">К вам попадают только те, кто прошёл многоэтапную проверку. Мы фильтруем — вы выбираете из лучших.</div></div></li>
+        <li class="benefit-item"><div class="benefit-icon">📉</div><div class="benefit-body"><div class="benefit-title">Снижение административной нагрузки</div><div class="benefit-desc">Кадровый учёт, зарплаты, налоги — на нас. Вы освобождаете ресурс бухгалтерии и HR.</div></div></li>
+        <li class="benefit-item"><div class="benefit-icon">🔄</div><div class="benefit-body"><div class="benefit-title">Гибкость под любой сезон</div><div class="benefit-desc">Нужно больше людей — расширяем команду. Нагрузка спала — сокращаем. Платите за фактическую потребность.</div></div></li>
+        <li class="benefit-item"><div class="benefit-icon">🤝</div><div class="benefit-body"><div class="benefit-title">Долгосрочное партнёрство</div><div class="benefit-desc">Мы изучаем специфику вашего объекта и подбираем людей, которые вписываются в ваши требования.</div></div></li>
+      </ul>
+    </div>
+    <div class="audience-col" id="workers">
+      <div class="audience-label">🔧 Для специалистов</div>
+      <h3 class="audience-title">Вы ищете работу</h3>
+      <p class="audience-intro">Работа через СК МК — это официальная занятость без серых схем. Трудовой договор, белая зарплата, социальные гарантии. Честно, надёжно, вовремя.</p>
+      <ul class="benefit-list">
+        <li class="benefit-item"><div class="benefit-icon">📄</div><div class="benefit-body"><div class="benefit-title">Официальный трудовой договор</div><div class="benefit-desc">С первого дня работы вы защищены законом. Договор фиксирует ваши права и условия — никаких устных обещаний.</div></div></li>
+        <li class="benefit-item"><div class="benefit-icon">💵</div><div class="benefit-body"><div class="benefit-title">Белая зарплата — всегда в срок</div><div class="benefit-desc">Вы получаете то, что заработали — полностью, официально, без задержек.</div></div></li>
+        <li class="benefit-item"><div class="benefit-icon">🏥</div><div class="benefit-body"><div class="benefit-title">Социальные гарантии</div><div class="benefit-desc">Страховой стаж, отчисления в пенсионный фонд, право на больничный и отпуск по закону.</div></div></li>
+        <li class="benefit-item"><div class="benefit-icon">🚀</div><div class="benefit-body"><div class="benefit-title">Быстрый выход на объект</div><div class="benefit-desc">Мы быстро обрабатываем анкеты. Подходящий объект — и вы уже работаете. Без лишних ожиданий.</div></div></li>
+        <li class="benefit-item"><div class="benefit-icon">📍</div><div class="benefit-body"><div class="benefit-title">Объекты под вашу специальность</div><div class="benefit-desc">Подбираем объекты, которые соответствуют вашей специализации и опыту.</div></div></li>
+        <li class="benefit-item"><div class="benefit-icon">🧩</div><div class="benefit-body"><div class="benefit-title">Поддержка на протяжении работы</div><div class="benefit-desc">Мы остаёмся на связи после выхода на объект. Любой вопрос — вы не один.</div></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- КАК РАБОТАЕМ -->
+<section id="how">
+  <div class="section-tag">Процесс</div>
+  <h2 class="section-title">Как мы <em>работаем</em></h2>
+  <p class="section-desc">Прозрачный процесс от заявки до выхода сотрудника на объект.</p>
+  <div class="steps-grid">
+    <div class="step-card"><div class="step-num">01</div><div class="step-title">Заявка и бриф</div><div class="step-desc">Вы описываете задачу: количество людей, специальность, сроки, объект. Мы уточняем детали.</div></div>
+    <div class="step-card"><div class="step-num">02</div><div class="step-title">Подбор из базы</div><div class="step-desc">Отбираем кандидатов из собственной базы проверенных специалистов под ваши требования.</div></div>
+    <div class="step-card"><div class="step-num">03</div><div class="step-title">Оформление договора</div><div class="step-desc">Заключаем официальный договор: аутстаффинга или подбора. Всё юридически чисто.</div></div>
+    <div class="step-card"><div class="step-num">04</div><div class="step-title">Выход на объект</div><div class="step-desc">Сотрудник выходит в согласованный срок. Мы сопровождаем процесс и остаёмся на связи.</div></div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ═══ ФОРМА: ИЩУ РАБОТУ (соискатели) ═══ -->
+<section class="form-section" id="want-work">
+  <div class="section-tag">Соискателям</div>
+  <h2 class="section-title">Хочу <em>работать</em></h2>
+  <p class="section-desc">Заполните форму — мы свяжемся с вами в течение рабочего дня и подберём подходящий объект.</p>
+  <div class="form-grid">
+    <div class="form-left">
+      <h3>Работайте официально.<br>С нами это просто.</h3>
+      <p>Оставьте данные — и мы сами подберём объект под вашу специальность и желаемую ставку. Никаких лишних звонков и бюрократии.</p>
+      <div class="form-promise">
+        <div class="form-promise-item">Трудовой договор с первого дня</div>
+        <div class="form-promise-item">Белая зарплата строго в срок</div>
+        <div class="form-promise-item">Объекты по вашей специальности</div>
+        <div class="form-promise-item">Социальные гарантии по закону</div>
+        <div class="form-promise-item">Данные защищены и не передаются третьим лицам</div>
+      </div>
+    </div>
+    <div>
+      <form class="app-form" id="workerForm">
+        <div class="form-row">
+          <div class="field-group">
+            <label class="field-label" for="w_fio">ФИО *</label>
+            <input class="field-input" type="text" id="w_fio" placeholder="Иванов Иван Иванович" required="">
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="w_phone">Телефон *</label>
+            <input class="field-input" type="tel" id="w_phone" placeholder="+7 (___) ___-__-__" required="">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field-group">
+            <label class="field-label" for="w_spec">Специальность *</label>
+            <input class="field-input" type="text" id="w_spec" placeholder="Сварщик, монтажник, водитель..." required="">
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="w_rate">Желаемая ставка</label>
+            <input class="field-input" type="text" id="w_rate" placeholder="Например: 3 500 ₽/смена">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field-group">
+            <label class="field-label" for="w_citizen">Гражданство *</label>
+            <select class="field-input" id="w_citizen" required="">
+              <option value="" disabled="" selected="">Выберите гражданство</option>
+              <option>РФ</option>
+              <option>Беларусь</option>
+              <option>Казахстан</option>
+              <option>Узбекистан</option>
+              <option>Таджикистан</option>
+              <option>Кыргызстан</option>
+              <option>Армения</option>
+              <option>Азербайджан</option>
+              <option>Другое</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="w_status">Статус *</label>
+            <select class="field-input" id="w_status" required="">
+              <option value="" disabled="" selected="">Ваш статус</option>
+              <option>Ищу работу</option>
+              <option>Работаю, рассматриваю предложения</option>
+              <option>Хочу сменить объект</option>
+              <option>Ищу подработку</option>
+            </select>
+          </div>
+        </div>
+        <div class="privacy-check">
+          <input type="checkbox" id="w_privacy" required="">
+          <label for="w_privacy">Нажимая кнопку, я даю согласие на обработку персональных данных в соответствии с <a href="file:///C:/Users/user/Downloads/privacy.html" target="_blank">Политикой конфиденциальности</a></label>
+        </div>
+        <div id="workerFormStatus" class="form-status"></div>
+        <button type="submit" class="btn-primary" style="align-self:flex-start;">Отправить заявку →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ═══ ФОРМА: НУЖНЫ СОТРУДНИКИ (работодатели) ═══ -->
+<section class="form-section" id="need-staff" style="background:#0f0f0f;">
+  <div class="section-tag">Работодателям</div>
+  <h2 class="section-title">Нужны <em>сотрудники</em></h2>
+  <p class="section-desc">Опишите вашу потребность — и мы подберём проверенных специалистов в кратчайшие сроки.</p>
+  <div class="form-grid">
+    <div class="form-left">
+      <h3>Персонал без кадровых<br>головных болей.</h3>
+      <p>Оставьте заявку — мы свяжемся с вами, уточним детали и предложим оптимальный формат: аутстаффинг или подбор в штат.</p>
+      <div class="form-promise">
+        <div class="form-promise-item">Государственная аккредитация — работаем законно</div>
+        <div class="form-promise-item">Проверенные специалисты из собственной базы</div>
+        <div class="form-promise-item">Официальный договор на предоставление персонала</div>
+        <div class="form-promise-item">Выход сотрудников в течение 48 часов</div>
+        <div class="form-promise-item">Полное кадровое сопровождение на нас</div>
+      </div>
+    </div>
+    <div>
+      <form class="app-form" id="clientForm">
+        <div class="field-group">
+          <label class="field-label" for="c_company">Название компании *</label>
+          <input class="field-input" type="text" id="c_company" placeholder="ООО «Название»" required="">
+        </div>
+        <div class="form-row">
+          <div class="field-group">
+            <label class="field-label" for="c_spec">Специальность / профессия *</label>
+            <input class="field-input" type="text" id="c_spec" placeholder="Разнорабочий, охранник, сварщик..." required="">
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="c_count">Кол-во работников *</label>
+            <input class="field-input" type="number" id="c_count" placeholder="Например: 5" min="1" required="">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field-group">
+            <label class="field-label" for="c_phone">Телефон для связи *</label>
+            <input class="field-input" type="tel" id="c_phone" placeholder="+7 (___) ___-__-__" required="">
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="c_email">Электронная почта *</label>
+            <input class="field-input" type="email" id="c_email" placeholder="mail@company.ru" required="">
+          </div>
+        </div>
+        <div class="privacy-check">
+          <input type="checkbox" id="c_privacy" required="">
+          <label for="c_privacy">Нажимая кнопку, я даю согласие на обработку персональных данных в соответствии с <a href="file:///C:/Users/user/Downloads/privacy.html" target="_blank">Политикой конфиденциальности</a></label>
+        </div>
+        <div id="clientFormStatus" class="form-status"></div>
+        <button type="submit" class="btn-primary" style="align-self:flex-start;">Отправить заявку →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="section-tag" style="justify-content:center;">Начать сотрудничество</div>
+  <h2 class="section-title" style="text-align:center;">Готовы работать<br><em>прямо сейчас</em></h2>
+  <p class="section-desc" style="text-align:center;">Оставьте заявку — и мы свяжемся с вами в течение рабочего дня. Подберём формат сотрудничества и ответим на все вопросы.</p>
+  <div class="cta-row">
+    <a href="tel:+79312740317" class="btn-primary">Позвонить нам →</a>
+    <a href="mailto:n9920044@gmail.com" class="btn-outline">Написать на почту</a>
+  </div>
+  <div class="contacts-grid">
+    <div class="contact-item"><div class="contact-label">Телефон</div><a href="tel:+79312740317" class="contact-val">+7 (931) 274-03-17</a></div>
+    <div class="contact-item"><div class="contact-label">Email</div><a href="mailto:n9920044@gmail.com" class="contact-val">n9920044@gmail.com</a></div>
+    <div class="contact-item"><div class="contact-label">Режим работы</div><div class="contact-val">Пн–Пт, 9:00–18:00</div></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="nav-logo" style="gap:14px;">
+    <div class="moon-icon"><div class="moon-circle"></div><div class="letters-wrap"><div class="letter-stack"><span class="ls l-s">С</span><span class="ls l-k">К</span><span class="ls l-m">М</span></div></div></div>
+    <div class="logo-text"><div class="logo-main">СК МК</div><div class="logo-sub">Частное агентство<br>занятости</div></div>
+  </div>
+  <div class="footer-copy">© 2025 СК МК. Все права защищены.</div>
+  <div class="footer-links"><a href="file:///C:/Users/user/Downloads/privacy.html" target="_blank">Политика конфиденциальности</a></div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  var WORKER_SHEET_URL = 'https://script.google.com/macros/s/AKfycbyBx1EH4FXOPl_jDWXpotJ-gfj4VhSoqPyU3xGH2vQXKgZ7hq5l-wt-58FrFXNqZoJP/exec';
+  var CLIENT_SHEET_URL = 'https://script.google.com/macros/s/AKfycbzaeVv7pjaQDIAJz6ndN1QuFUNWIaMIB4EgZQANSjHrSdIDAbM4uNQtqZg2EuwOWIWO/exec';
+
+  // Маска телефона
+  function phoneMask(el) {
+    if (!el) return;
+    el.addEventListener('input', function(e) {
+      var v = e.target.value.replace(/\D/g,'');
+      if (v.charAt(0)==='8') v='7'+v.slice(1);
+      if (v.charAt(0)!=='7' && v.length>0) v='7'+v;
+      var f='';
+      if (v.length>0)  f='+7';
+      if (v.length>1)  f+=' ('+v.slice(1,4);
+      if (v.length>=4) f+=') '+v.slice(4,7);
+      if (v.length>=7) f+='-'+v.slice(7,9);
+      if (v.length>=9) f+='-'+v.slice(9,11);
+      e.target.value=f;
+    });
+  }
+  phoneMask(document.getElementById('w_phone'));
+  phoneMask(document.getElementById('c_phone'));
+
+  // Отправка формы
+  function submitForm(url, data, statusEl, btn) {
+    var orig = btn.textContent;
+    btn.textContent = 'Отправляем...';
+    btn.disabled = true;
+    statusEl.className = 'form-status';
+
+    fetch(url, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function() {
+      statusEl.textContent = '✓ Заявка отправлена! Мы свяжемся с вами в течение рабочего дня.';
+      statusEl.className = 'form-status success';
+      btn.closest('form').reset();
+      btn.textContent = orig;
+      btn.disabled = false;
+    }).catch(function() {
+      statusEl.textContent = '✗ Ошибка отправки. Позвоните нам: +7 (931) 274-03-17';
+      statusEl.className = 'form-status error';
+      btn.textContent = orig;
+      btn.disabled = false;
+    });
+  }
+
+  // Форма соискателя
+  var workerForm = document.getElementById('workerForm');
+  if (workerForm) {
+    workerForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      submitForm(WORKER_SHEET_URL, {
+        date:        new Date().toLocaleString('ru-RU'),
+        fio:         document.getElementById('w_fio').value.trim(),
+        phone:       document.getElementById('w_phone').value.trim(),
+        spec:        document.getElementById('w_spec').value.trim(),
+        rate:        document.getElementById('w_rate').value.trim(),
+        citizenship: document.getElementById('w_citizen').value,
+        status:      document.getElementById('w_status').value
+      }, document.getElementById('workerFormStatus'), this.querySelector('button[type="submit"]'));
+    });
+  }
+
+  // Форма работодателя
+  var clientForm = document.getElementById('clientForm');
+  if (clientForm) {
+    clientForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      submitForm(CLIENT_SHEET_URL, {
+        date:    new Date().toLocaleString('ru-RU'),
+        company: document.getElementById('c_company').value.trim(),
+        spec:    document.getElementById('c_spec').value.trim(),
+        count:   document.getElementById('c_count').value.trim(),
+        phone:   document.getElementById('c_phone').value.trim(),
+        email:   document.getElementById('c_email').value.trim()
+      }, document.getElementById('clientFormStatus'), this.querySelector('button[type="submit"]'));
+    });
+  }
+
+}); // конец DOMContentLoaded
+</script>
+
+
+</body></html>
